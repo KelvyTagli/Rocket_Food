@@ -14,7 +14,7 @@ export function SignIn() {
             </Background>
             <Form>
                 <h1>Faça login</h1>
-                <Input  title="Email" placeholder="Exemplo: exemplo@exemplo.com.br" type="text" onChange={e => setEmail(e.target.value)}/>
+                <Input title="Email" placeholder="Exemplo: exemplo@exemplo.com.br" type="text" onChange={e => setEmail(e.target.value)}/>
                 <Input title="Senha" placeholder="No minimo 6 caracteres" type="password" onChange={e => set(e.target.value)}/>
 
                 <Button title="Entrar"/>

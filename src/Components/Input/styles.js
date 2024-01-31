@@ -7,7 +7,6 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 8px;
 
-    background-color: ${({theme}) => theme.COLORS.Dark_700};
     color: ${({theme}) => theme.COLORS.Light_400};
 
     margin: .8rem;
@@ -15,22 +14,24 @@ export const Container = styled.div`
 
     font-family: "Roboto", sans-serif;
 
-    > p {
-        color: ${({theme}) => theme.COLORS.Light_400};
-    }
-
     > input {
-        height: 53px;
+        height: 48px;
         width: 100%;
+        padding: 1.2rem 1.4rem;
 
-        padding: 1.2rem;
         color: ${({theme}) => theme.COLORS.Light_500};
-        background: transparent;
-        border: 1px solid ${({theme}) => theme.COLORS.Light_100};
+        background-color: ${({theme}) => theme.COLORS.Dark_900};
+
+        border: none;
         border-radius: 5px;
 
         &::placeholder {
             color: ${({theme}) => theme.COLORS.Light_500};
         }
+    }
+
+    > input:focus {
+        background-color: transparent;
+        border: 1px solid ${({theme}) => theme.COLORS.Light_100};
     }
 `
