@@ -1,0 +1,16 @@
+import styled from "styled-components";
+
+export const Container = styled.button `
+    width: 100%;
+
+    text-align: center;
+    padding: 1.2rem 3.2rem;
+    border-radius: 5px;
+
+    color: ${({theme}) => theme.COLORS.Light_100};
+    background-color: ${({theme}) => theme.COLORS.Tomato_100};
+
+    &:disabled {
+        opacity: 0.5;
+    }
+`

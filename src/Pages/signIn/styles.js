@@ -12,13 +12,14 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     width: 478px;
-    height: 540px;
+    
     padding: 6.4rem;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: "poppins", sans-serif;
 
     gap: 3.2rem;
 
@@ -28,7 +29,6 @@ export const Form = styled.form`
     > h1 {
         font-size: 3.2rem;
         color: ${({theme}) => theme.COLORS.Light_100};
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 `
 
@@ -36,6 +36,7 @@ export const Background = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Roboto", sans-serif;
     gap: 1rem;
 
     >img {

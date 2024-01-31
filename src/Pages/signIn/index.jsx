@@ -2,6 +2,8 @@ import { Container, Form, Background } from "./styles";
 import background from '../../assets/Polygon.svg'
 
 import { Input } from "../../Components/Input";
+import { Button } from "../../Components/Button";
+
 
 export function SignIn() {
     return(
@@ -12,8 +14,11 @@ export function SignIn() {
             </Background>
             <Form>
                 <h1>Faça login</h1>
-                <Input placeholder="E-mail" type="text" onChange={e => setEmail(e.target.value)}/>
-                <Input placeholder="Senha" type="password" onChange={e => set(e.target.value)}/>
+                <Input  title="Email" placeholder="Exemplo: exemplo@exemplo.com.br" type="text" onChange={e => setEmail(e.target.value)}/>
+                <Input title="Senha" placeholder="No minimo 6 caracteres" type="password" onChange={e => set(e.target.value)}/>
+
+                <Button title="Entrar"/>
+                <a to='/'>Criar uma conta</a>
             </Form>
         </Container>
     )
