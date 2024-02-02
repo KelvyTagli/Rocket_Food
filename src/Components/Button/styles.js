@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Container = styled.button `
     width: 100%;
 
+    display: flex;
+    gap: .8rem;
+
     text-align: center;
     padding: 1.2rem 3.2rem;
     border-radius: 5px;

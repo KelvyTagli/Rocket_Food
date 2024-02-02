@@ -15,7 +15,7 @@ export const Container = styled.div`
     font-family: "Roboto", sans-serif;
 
     > input {
-        height: 48px;
+        height: 45px;
         width: 100%;
         padding: 1.2rem 1.4rem;
 
