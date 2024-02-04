@@ -9,7 +9,7 @@ export const Container = styled.footer`
     align-items: center;
     justify-content: space-around;
 
-    color: ${({theme}) => theme.COLORS.Light_200};
+    color: ${({theme}) => theme.COLORS.Light_300};
     background-color: ${({theme}) => theme.COLORS.Dark_600};
 
     font-family: "Roboto",sans-serif;
@@ -19,7 +19,7 @@ export const Logo = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.9rem;
+    gap: 1rem;
 
     color: ${({theme}) => theme.COLORS.Light_700};
 

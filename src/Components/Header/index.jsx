@@ -8,7 +8,7 @@ export function Header() {
         <Container>
             <Section>
                 <Logo>
-                    <img src={Polygon} alt="" />
+                    <img src={Polygon} alt="Polygon" />
                     <h2>food explorer</h2>
                 </Logo>
                 <Search>

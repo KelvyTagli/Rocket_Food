@@ -8,12 +8,12 @@ export const Container = styled.header`
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     background-color: ${({theme}) => theme.COLORS.Dark_600};
     
     
-    padding: 2.4rem 12.3rem;
+    padding: 2.4rem 12rem;
 `
 
 export const Section = styled.div`
@@ -23,6 +23,10 @@ export const Section = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    font-family: "Roboto", sans-serif;
+
+    gap: 3.2rem;
 `
 
 export const Logo = styled.div`
@@ -31,13 +35,15 @@ export const Logo = styled.div`
     display: flex;
     align-items: center;
 
-    gap: 1.5rem;
-
-    font-family: "Roboto", sans-serif;
+    gap: 1rem;
 
     > img {
-        width: 30px;
-        height: 30px;
+        width: 35px;
+        height: 35px;
+    }
+
+    > h2 {
+        font-weight: 500;
     }
 `
 
@@ -63,13 +69,14 @@ export const Search = styled.div`
         color: ${({theme}) => theme.COLORS.Light_500};
 
         border: none;
-
     }
 `
 
 export const Request = styled.div`
-    width: 21.6rem;
+    width: 21rem;
     height: 5.6rem;
+
+    margin: auto 3.2rem auto 3.2rem;
 
     > button {
         display: flex;
@@ -81,7 +88,7 @@ export const Request = styled.div`
         width: 100%;
         height: 100%;
 
-        background-color: ${({theme}) => theme.COLORS.Tomato_200};
+        background-color: ${({theme}) => theme.COLORS.Tomato_100};
         color: ${({theme}) => theme.COLORS.Light_200};
 
         border: none;
@@ -89,6 +96,8 @@ export const Request = styled.div`
 
         font-size: 1.6rem;
         font-family: "Poppins", sans-serif;
+
+        padding: 12px 32px;
     }
 `
 
