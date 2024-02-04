@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 100vh;
 
     display: grid;
-    grid-template-rows: 105px 128px auto 6.4rem;
-    grid-template-areas: "header" "title" "meals" "footer"; 
+    grid-template-rows: 90px 43rem auto 58px;
+    grid-template-areas: "header" "title" "section" "footer"; 
     background-color: ${({theme}) => theme.COLORS.Dark_400};
 `
