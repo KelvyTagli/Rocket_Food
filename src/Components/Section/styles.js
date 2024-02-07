@@ -4,7 +4,8 @@ export const Container = styled.div `
     grid-area: section;
 
     display: flex;
-    gap: 2.4rem;
+    flex-direction: column;
+    align-items: stretch;
     
     margin: 4rem auto;
     width: 1122px;
@@ -17,4 +18,14 @@ export const Container = styled.div `
         font-weight: 400;
         letter-spacing: 1px;
     }
+`
+
+export const Content = styled.div`
+    display: flex;
+    
+    width: 100%;
+
+    margin: 2rem auto;
+
+    gap: 27px;
 `

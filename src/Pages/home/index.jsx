@@ -3,7 +3,9 @@ import { Container } from "./styles";
 import { Header } from "../../Components/Header";
 import { Billboard } from "../../Components/Billboard";
 import { Section } from "../../Components/Section";
+import { Card } from "../../Components/Card";
 import { Footer } from "../../Components/Footer";
+import { Heart } from "@phosphor-icons/react";
 
 export function Home() {
     return(
@@ -11,9 +13,19 @@ export function Home() {
             <Header/>
             <Billboard/>
             <div>
-                <Section title="Refeições"></Section>
-                <Section title="Sobremesas"></Section>
-                <Section title="Bebidas"></Section>
+                <Section title="Refeições">
+                    <Card/>
+                    <Card/>
+                    <Card/>
+                </Section>
+
+                <Section title="Sobremesas">
+                    
+                </Section>
+
+                <Section title="Bebidas">
+                    
+                </Section>
             </div>
             <Footer/>
         </Container>
