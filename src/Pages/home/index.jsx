@@ -14,7 +14,7 @@ export function Home() {
             <Billboard/>
             <div>
                 <Section title="Refeições">
-                    <Card/>
+                    <Card title="Torradas de Parma" description={"Massa fresca com caramões e pesto."} price={"47,90"}/>
                     <Card/>
                     <Card/>
                 </Section>

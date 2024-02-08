@@ -1,17 +1,20 @@
-import {Container, Food} from './styles'
+import {Container, Food, Price, Like} from './styles'
 
 import { Heart } from "@phosphor-icons/react";
 import Toradas from '../../assets/Torradas.png'
 
-export function Card() {
+export function Card({title, description, price}) {
     return(
         <Container>
-            <Heart size={32}/>
+            <Like>
+                <Heart size={32}/>
+            </Like>
             <Food>
                 <img src={Toradas} alt="" />
-                <h3>Torradas de Parma</h3>
-                <p>Massa fresca com caramões e pesto.</p>
+                <h3>{title}</h3>
+                <p>{description}</p>
             </Food>
+                <Price>R$ {price}</Price> 
         </Container>
     )
 }
