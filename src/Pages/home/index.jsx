@@ -5,7 +5,6 @@ import { Billboard } from "../../Components/Billboard";
 import { Section } from "../../Components/Section";
 import { Card } from "../../Components/Card";
 import { Footer } from "../../Components/Footer";
-import { Heart } from "@phosphor-icons/react";
 
 export function Home() {
     return(

@@ -7,7 +7,7 @@ export const Container = styled.form`
     display: grid;
 
     grid-template-areas: "like" "food" "price" "button";
-    grid-template-rows: 1.5rem auto;
+    grid-template-rows: 1.6rem;
 
     padding: 1rem;
 
@@ -17,7 +17,19 @@ export const Container = styled.form`
 
 export const Like = styled.div`
     grid-area: like;
-    text-align: end;
+
+    width: 100%;
+    height: 30px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: end;
+    
+    > button {
+        color: ${({theme}) => theme.COLORS.Light_100};
+        background-color: transparent;
+        border: none;
+    }
 `
 
 export const Food = styled.div`
@@ -29,7 +41,7 @@ export const Food = styled.div`
     width: 256px;
     height: 176px;
     
-    margin: -1rem auto;
+    margin: 2.6rem auto;
     text-align: center;
 
 
@@ -53,6 +65,39 @@ export const Price = styled.span`
     grid-area: price;
     text-align: center;
 
-    font-size: 35px;
+    font-size: 30px;
     color: ${({theme}) => theme.COLORS.Cake_200};
+`
+
+export const Amount = styled.div`
+    grid-area: button;
+
+    margin: .1rem auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+
+    width: 208px;
+    height: 48px;
+`
+
+export const Counter = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    > button {
+        background-color: transparent;
+        border: none;
+
+        color: ${({theme}) => theme.COLORS.Light_100};
+    }
+
+    > span{
+        font-size: 20px;
+        letter-spacing: 1px;
+        font-family: "Roboto",sans-serif;
+    }
 `
