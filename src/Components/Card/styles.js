@@ -15,23 +15,6 @@ export const Container = styled.form`
     border-radius: 8px;
 `
 
-export const Like = styled.div`
-    grid-area: like;
-
-    width: 100%;
-    height: 30px;
-
-    display: flex;
-    align-items: stretch;
-    justify-content: end;
-    
-    > button {
-        color: ${({theme}) => theme.COLORS.Light_100};
-        background-color: transparent;
-        border: none;
-    }
-`
-
 export const Food = styled.div`
     position: relative;
 

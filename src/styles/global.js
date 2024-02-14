@@ -26,6 +26,12 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
+    button {
+        background-color: transparent;
+        border: none;
+        color: ${({theme}) => theme.COLORS.Light_100};
+    }
+
     button, a {
         cursor: pointer;
         transition:  filter 0.2s;
