@@ -6,7 +6,8 @@ import { Section } from "../../Components/Section";
 import { Card } from "../../Components/Card";
 import { Footer } from "../../Components/Footer";
 
-import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { Carousel, CarouselItem} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.css';
 import Toradas from '../../assets/Torradas.png'
 
 export function Home() {
@@ -17,34 +18,48 @@ export function Home() {
 
             <div>
                 <Section title="Refeições">
-                    <button>
-                        <CaretLeft size={32} />
-                    </button>
-
-                    <Card
-                        cover={Toradas}
-                        title="Spaguetti Gambe >" 
-                        description={"Massa fresca com caramões e pesto."} 
-                        price={"47,90"}
-                     />
-
-                    <Card
-                        cover={Toradas}
-                        title="Spaguetti Gambe >" 
-                        description={"Massa fresca com caramões e pesto."} 
-                        price={"47,90"}
-                     />
-
-                    <Card
-                        cover={Toradas}
-                        title="Spaguetti Gambe >" 
-                        description={"Massa fresca com caramões e pesto."} 
-                        price={"47,90"}
-                     />
-
-                    <button>
-                        <CaretRight size={32} />
-                    </button>
+                   <Carousel>
+                        <Carousel.Item interval={1500}>
+                            <Card
+                            cover={Toradas}
+                            title="Spaguetti Gambe >" 
+                            description={"Massa fresca com caramões e pesto."} 
+                            price={"41,90"}
+                            />
+                        </Carousel.Item>
+                        <CarouselItem interval={1500}>
+                            <Card
+                            cover={Toradas}
+                            title="Spaguetti Gambe >" 
+                            description={"Massa fresca com caramões e pesto."} 
+                            price={"47,90"}
+                            />
+                        </CarouselItem>
+                        <CarouselItem interval={1500}>
+                            <Card
+                            cover={Toradas}
+                            title="Spaguetti Gambe >" 
+                            description={"Massa fresca com caramões e pesto."} 
+                            price={"47,90"}
+                            />
+                        </CarouselItem>
+                        <CarouselItem interval={1500}>
+                            <Card
+                            cover={Toradas}
+                            title="Spaguetti Gambe >" 
+                            description={"Massa fresca com caramões e pesto."} 
+                            price={"47,90"}
+                            />
+                        </CarouselItem>
+                        <CarouselItem interval={1500}>
+                            <Card
+                            cover={Toradas}
+                            title="Spaguetti Gambe >" 
+                            description={"Massa fresca com caramões e pesto."} 
+                            price={"47,90"}
+                            />
+                        </CarouselItem>
+                   </Carousel>
                 </Section>
 
                 <Section title="Sobremesas">
