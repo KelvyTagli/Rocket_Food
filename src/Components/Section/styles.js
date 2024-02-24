@@ -21,11 +21,23 @@ export const Container = styled.div `
 `
 
 export const Content = styled.div`
-    display: flex;
+   display: flex;
+   align-items: center;
     
     width: 100%;
 
-    margin: 2rem auto;
+    gap: 1.7rem;
 
-    gap: 27px;
+    >::-webkit-scrollbar {
+            display: none;
+        }
+`
+
+export const Items = styled.div`
+        display: flex;
+
+        overflow-x: auto;
+        scroll-behavior: smooth;
+
+        gap: 27px;
 `
