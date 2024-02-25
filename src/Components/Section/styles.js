@@ -5,11 +5,14 @@ export const Container = styled.div `
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: stretch;
     
     margin: 4rem auto;
-    width: 1122px;
+    width: 1300px;
     height: 529.72px;
+
+    gap: 1.7rem;
 
     > h2 {
         color: ${({theme}) => theme.COLORS.Light_300};
@@ -25,7 +28,6 @@ export const Content = styled.div`
    align-items: center;
     
     width: 100%;
-
     gap: 1.7rem;
 
     >::-webkit-scrollbar {
@@ -38,6 +40,6 @@ export const Items = styled.div`
 
         overflow-x: auto;
         scroll-behavior: smooth;
-
+        
         gap: 27px;
 `

@@ -50,6 +50,8 @@ export const Price = styled.span`
 
     font-size: 30px;
     color: ${({theme}) => theme.COLORS.Cake_200};
+
+    margin-top: 2.5rem;
 `
 
 export const Amount = styled.div`

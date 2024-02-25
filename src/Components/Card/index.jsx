@@ -10,7 +10,7 @@ export function Card({cover, title, description, price}) {
             <Like/>
             <Food>
                 <img src={cover} alt="" />
-                <h3>{title}</h3>
+                <h3>{title} {'>'}</h3>
                 <p>{description}</p>
             </Food>
             <Price>R$ {price}</Price>

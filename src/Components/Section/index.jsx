@@ -18,7 +18,7 @@ export function Section({title, children}) {
     return(
         <Container>
             <h2>{title}</h2>
-            <Content className="carousel">
+            <Content>
                 <button onClick={handleLeftClick}><CaretLeft size={32} /></button>
                     <Items ref={carousel}>
                         {children}

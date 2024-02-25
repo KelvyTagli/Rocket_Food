@@ -22,7 +22,7 @@ export function Like() {
 
     return(
         <Container>
-            <button className={`botao-like ${liked ? 'liked': ''}`} onClick={hadlerClick}>
+            <button className={`botao-like ${liked ? 'liked': ''}`} onClick={hadlerClick} type="button">
                 {liked ? <Heart size={30} color="#f60404" weight="fill" /> : <Heart size={30}/> }
             </button>
         </Container>
