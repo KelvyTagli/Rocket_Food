@@ -5,17 +5,20 @@ export const Container = styled.div`
     width: 100%;
 
     display: grid;
-    grid-template-areas: "header" "back" "description" "footer";
-    grid-template-rows: 90px 8rem auto 58px;
+    grid-template-areas: "header" "buttonBack" "description" "footer";
+    grid-template-rows: 8rem auto auto 6.5rem;
     
     > button {
+        width: 100px;
+        height: 34px;
+
         display: flex;
         align-items: center;
-        grid-area: back;
+        grid-area: buttonBack;
 
-        margin-left:23rem ;
+        margin:3rem 0 0 23rem;
 
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         font-weight: bold;
     }
 `
@@ -28,6 +31,7 @@ export const Description = styled.div`
 
     gap: 10rem;
     margin-left: 23rem;
+    margin-top: -12rem;
 
     > img {
         width: 350px;
@@ -39,5 +43,24 @@ export const Description = styled.div`
         display: flex;
         flex-direction: column;
         gap: 2.4rem;
+
+        font-family: "Poppins",sans-serif;
+        color: ${({theme}) => theme.COLORS.Light_300};
+
+        > h1 {
+            font-size: 40px;
+            font-weight: 500;
+        }
+
+        > p {
+            font-weight: 400;
+            font-size: 23px;
+        }
     }
+`
+
+export const ingredients = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 `

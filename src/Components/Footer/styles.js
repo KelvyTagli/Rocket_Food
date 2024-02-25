@@ -13,6 +13,11 @@ export const Container = styled.footer`
     background-color: ${({theme}) => theme.COLORS.Dark_600};
 
     font-family: "Roboto",sans-serif;
+
+    > p {
+        margin-left: 32rem;
+        border: 1px solid white;
+    }
 `
 
 export const Logo = styled.div`
@@ -20,6 +25,8 @@ export const Logo = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
+    margin-left: 3rem;
 
     color: ${({theme}) => theme.COLORS.Light_700};
 
