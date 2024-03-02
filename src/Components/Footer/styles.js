@@ -16,7 +16,6 @@ export const Container = styled.footer`
 
     > p {
         margin-left: 32rem;
-        border: 1px solid white;
     }
 `
 

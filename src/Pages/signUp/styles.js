@@ -26,6 +26,10 @@ export const Form = styled.form`
     > h1 {
         color: ${({theme}) => theme.COLORS.Light_100};
     }
+
+    > a {
+        color: ${({theme}) => theme.COLORS.Light_100};
+    }
 `
 
 export const Background = styled.div`
