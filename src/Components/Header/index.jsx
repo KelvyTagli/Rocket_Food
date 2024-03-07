@@ -3,7 +3,10 @@ import {MagnifyingGlass, SignOut, Receipt} from "@phosphor-icons/react"
 import { Container, Section,Logo, Search, Request, Logout} from "./styles";
 import Polygon from "../../assets/Polygon.svg"
 
+import { useAuth } from "../../hooks/auth";
+
 export function Header() {
+    const {signOut} = useAuth()
     return(
         <Container>
             <Section>
@@ -23,7 +26,7 @@ export function Header() {
                 </button>
             </Request>
             <Logout>
-                <SignOut size={30} />
+                <SignOut size={30} onClick={signOut}/>
             </Logout>
         </Container>
     )
