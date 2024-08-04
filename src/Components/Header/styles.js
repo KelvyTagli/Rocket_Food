@@ -4,7 +4,7 @@ export const Container = styled.header`
     grid-area: header;
 
     width: 100%;
-    height: 10rem;
+    height: 9rem;
 
     display: flex;
     align-items: center;
@@ -12,8 +12,6 @@ export const Container = styled.header`
 
     background-color: ${({theme}) => theme.COLORS.Dark_600};
     
-    
-    padding: 2.4rem 12rem;
 `
 
 export const Section = styled.div`

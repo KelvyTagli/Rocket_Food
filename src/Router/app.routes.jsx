@@ -6,8 +6,8 @@ import { Dish } from '../Pages/dish'
 export function AppRoutes() {
     return (
         <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/Dish/:id' element={<Dish />}/>
+            <Route path='/Rocket_Food/' element={<Home />}/>
+            <Route path='/Rocket_Food/Dish' element={<Dish />}/>
         </Routes>
     )
 }

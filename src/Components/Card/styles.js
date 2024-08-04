@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
     width: 304px;
     height: 462px;
 
@@ -13,35 +13,42 @@ export const Container = styled.form`
 
     background-color: ${({theme}) => theme.COLORS.Dark_200};
     border-radius: 8px;
+
+    > .Food {
+        display: grid;
+        grid-area: food;
+
+        width: 256px;
+        height: 176px;
+        
+        margin: 2.6rem auto;
+        text-align: center;
+
+        color: ${({theme}) => theme.COLORS.Light_100};
+
+
+        > img {
+            width: 176px;
+            height: 100%;
+            border-radius: 50%;
+            margin: -1rem auto 1rem;
+        }
+
+        > h3 {
+            font-size: 22px;
+        }
+
+        > p {
+            font-size: 13px;
+            color: ${({theme}) => theme.COLORS.Light_500};
+        }
+    }
 `
 
-export const Food = styled.div`
+export const Food = styled.a`
     position: relative;
 
-    display: grid;
-    grid-area: food;
-
-    width: 256px;
-    height: 176px;
     
-    margin: 2.6rem auto;
-    text-align: center;
-
-
-    > img {
-        width: 176px;
-        height: 100%;
-        border-radius: 50%;
-        margin: -1rem auto 1rem;
-    }
-
-    > h3 {
-        font-size: 22px;
-    }
-
-    > p {
-        font-size: 13px;
-    }
 `
 
 export const Price = styled.span`

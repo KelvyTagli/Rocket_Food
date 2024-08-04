@@ -3,10 +3,10 @@ import {MagnifyingGlass, SignOut, Receipt} from "@phosphor-icons/react"
 import { Container, Section,Logo, Search, Request, Logout} from "./styles";
 import Polygon from "../../assets/Polygon.svg"
 
-import { useAuth } from "../../hooks/auth";
+import * as auth from "../../Hooks/auth";
 
 export function Header() {
-    const {signOut} = useAuth()
+    const {signOut} = auth.useAuth()
     return(
         <Container>
             <Section>

@@ -8,14 +8,15 @@ import Maracuja from '../../assets/Maracuja.png'
 
 import {Tag} from '../../Components/Tag'
 import { Counter } from "../../Components/Counter";
+import { Link } from "react-router-dom";
 
 export function Dish() {
     return(
         <Container>
             <Header/>
-            <button>
+            <Link to="/Rocket_Food/" className="Button_Back">
                 <CaretLeft size={30} />Voltar
-            </button>
+            </Link>
             <Description>
                 <img src={Maracuja} alt="suco de maracujá" />
                 <div>

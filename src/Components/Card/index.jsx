@@ -1,18 +1,19 @@
-import {Container, Food, Price, Amount, Counter} from './styles'
+import {Container, Price, Amount, Counter} from './styles'
 
 import { Plus, Minus } from "@phosphor-icons/react";
 import { Button } from '../Button'
 import { Like } from '../Like';
+import { Link } from 'react-router-dom';
 
-export function Card({cover, title, description, price}) {
+export function Card({cover, title, description, price, id}) {
     return(
         <Container>
             <Like/>
-            <Food>
+            <Link to='/Rocket_Food/Dish' className='Food'>
                 <img src={cover} alt="" />
                 <h3>{title} {'>'}</h3>
                 <p>{description}</p>
-            </Food>
+            </Link>
             <Price>R$ {price}</Price>
             <Amount>
                 <Counter>

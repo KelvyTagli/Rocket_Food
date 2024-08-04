@@ -5,21 +5,27 @@ export const Container = styled.div`
     width: 100%;
 
     display: grid;
-    grid-template-areas: "header" "buttonBack" "description" "footer";
-    grid-template-rows: 8rem auto auto 6.5rem;
+    grid-template-areas: "header" "button_back" "description" "footer";
+    grid-template-rows: auto auto auto 8rem;
+
     
-    > button {
+    border: 1px solid white;
+    > .Button_Back {
+        grid-area: button_back;
+
         width: 100px;
         height: 34px;
 
         display: flex;
         align-items: center;
-        grid-area: buttonBack;
-
-        margin:3rem 0 0 23rem;
+        
+        margin:1rem 0 0 15rem;
 
         font-size: 1.8rem;
-        font-weight: bold;
+        font-variant: small-caps;
+        /* font-weight: bold; */
+
+        color: ${({theme}) => theme.COLORS.Light_300};
     }
 `
 
