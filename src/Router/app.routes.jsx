@@ -7,7 +7,7 @@ export function AppRoutes() {
     return (
         <Routes>
             <Route path='/Rocket_Food/' element={<Home />}/>
-            <Route path='/Rocket_Food/Dish' element={<Dish />}/>
+            <Route path='/Rocket_Food/Dish/:id' element={<Dish />}/>
         </Routes>
     )
 }

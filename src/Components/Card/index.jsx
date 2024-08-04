@@ -5,11 +5,14 @@ import { Button } from '../Button'
 import { Like } from '../Like';
 import { Link } from 'react-router-dom';
 
-export function Card({cover, title, description, price, id}) {
+export function Card({cover, title, description, price,id}) {
+
+    id = 1;
+    
     return(
         <Container>
             <Like/>
-            <Link to='/Rocket_Food/Dish' className='Food'>
+            <Link to={`/Rocket_Food/Dish/${id}`} className='Food'>
                 <img src={cover} alt="" />
                 <h3>{title} {'>'}</h3>
                 <p>{description}</p>

@@ -6,6 +6,7 @@ import { Button } from "../../Components/Button";
 
 import { useAuth } from "../../Hooks/auth";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export function SignIn() {
@@ -31,7 +32,7 @@ export function SignIn() {
                 <Input title="Senha" placeholder="No minimo 6 caracteres" type="password" onChange={e => setPassword(e.target.value)}/>
 
                 <Button title="Entrar" onClick={handlerSignIn}/>
-                <a href="/register">Criar uma conta</a>
+                <Link to="/Rocket_Food/register">Criar uma conta</Link>
             </Form>
         </Container>
     )
