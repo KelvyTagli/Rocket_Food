@@ -36,8 +36,8 @@ export const Logo = styled.div`
     gap: 1rem;
 
     > img {
-        width: 35px;
-        height: 35px;
+        width: 33px;
+        height: 33px;
     }
 
     > h2 {

@@ -29,23 +29,30 @@ export const Section = styled.div`
 
 export const Logo = styled.div`
     width: 196px;
-
+    
     display: flex;
-    align-items: center;
 
     gap: 1rem;
 
     > img {
-        width: 35px;
-        height: 35px;
+        width: 33px;
+        height: 33px;
     }
 
-    > h2 {
-        font-weight: 500;
-    }
+    > .Titulo {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
 
-    > p {
-        color: ${({theme}) => theme.COLORS.Cake_200};
+        > h2 {
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        > p {
+            font-size: 13px;
+            color: ${({theme}) => theme.COLORS.Cake_200};
+        }
     }
 `
 

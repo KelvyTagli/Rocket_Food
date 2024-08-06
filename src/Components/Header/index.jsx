@@ -5,6 +5,9 @@ import Polygon from "../../assets/Polygon.svg"
 
 import * as auth from "../../Hooks/auth";
 
+import { Link } from "react-router-dom";
+import {Button} from "../Button"
+
 export function Header() {
     const {signOut} = auth.useAuth()
     return(
@@ -20,10 +23,12 @@ export function Header() {
                 </Search>
             </Section>
             <Request>
-                <button>
-                    <Receipt size={30} />
-                    {"Pedidos (0)"}
-                </button>
+                <Link to='/Rocket_Food/'>
+               <Button
+                    icon={Receipt}
+                    title={"Pedidos"}
+                />
+               </Link>
             </Request>
             <Logout>
                 <SignOut size={30} onClick={signOut}/>
