@@ -1,29 +1,37 @@
-import { Container, Content,Items } from "./styles";
-import { CaretLeft,CaretRight } from "@phosphor-icons/react";
-import { useRef } from "react";
+import { Container, Content } from "./styles";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+
+import { register } from "swiper/element";
+
+register();
 
 export function Section({title, children}) {
-    const carousel = useRef(null)
-
-    const handleLeftClick = (e) => {
-        e.preventDefault()
-        carousel.current.scrollLeft -= carousel.current.offsetWidth 
-    }
-
-    const handleRightClick = (e)  => {
-        e.preventDefault();
-        carousel.current.scrollLeft += carousel.current.offsetWidth 
-    }
-
+    
     return(
         <Container>
             <h2>{title}</h2>
             <Content>
-                <button onClick={handleLeftClick}><CaretLeft size={32} /></button>
-                    <Items ref={carousel}>
+                <Swiper
+                    slidesPerView={1}
+                    freeMode={true}
+                    pagination={{
+                      clickable: true,
+                    }}
+                    modules={[FreeMode, Pagination]}
+                    >
+                    
+                   <SwiperSlide className="mySwiper">
                         {children}
-                    </Items>
-                <button onClick={handleRightClick}><CaretRight size={32} /></button>
+                   </SwiperSlide>
+                </Swiper>
             </Content>
         </Container>
     )

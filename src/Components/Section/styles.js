@@ -21,6 +21,12 @@ export const Container = styled.div `
         font-weight: 400;
         letter-spacing: 1px;
     }
+
+    .mySwiper {
+        display: flex;
+        gap: 2rem;
+
+    }
 `
 
 export const Content = styled.div`
@@ -29,17 +35,4 @@ export const Content = styled.div`
     
     width: 100%;
     gap: 1.7rem;
-
-    >::-webkit-scrollbar {
-            display: none;
-        }
-`
-
-export const Items = styled.div`
-        display: flex;
-
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        
-        gap: 27px;
 `

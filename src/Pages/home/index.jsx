@@ -6,13 +6,43 @@ import { Section } from "../../Components/Section";
 import { Card } from "../../Components/Card";
 import { Footer } from "../../Components/Footer";
 
-import Toradas from '../../assets/Torradas.png'
-import sobremesa from '../../assets/image 7.png'
-import Maracuja from '../../assets/Maracuja.png'
+import { useEffect, useState } from "react";
+import { api } from "../../Services/api";
 
 
 export function Home() {
 
+const [Dish, setDish] = useState([])
+const [Dessert, setdessert] = useState([])
+const [Beverages, setbeverages] = useState([])
+
+const [refeicoes, setrefeicoes] = useState('Refeições')
+const [sobremesa, setsobremesa] = useState('Sobremesas')
+const [bebidas, setbebidas] = useState('Bebidas')
+
+useEffect(() => {
+    async function fetchDish() {
+        const response = await api.get(`/dish?user_id=${1}&category=${refeicoes}`);
+        setDish(response.data);
+    }
+    fetchDish();
+},[])
+
+useEffect(() => {
+    async function fetchDish() {
+        const response = await api.get(`/dish?user_id=${1}&category=${sobremesa}`);
+        setdessert(response.data);
+    }
+    fetchDish();
+},[])
+
+useEffect(() => {
+    async function fetchDish() {
+        const response = await api.get(`/dish?user_id=${1}&category=${bebidas}`);
+        setbeverages(response.data);
+    }
+    fetchDish();
+},[])
     return(
         <Container>
             <Header/>
@@ -20,30 +50,43 @@ export function Home() {
 
             <div>
                 <Section title="Refeições">
-                    <Card
-                        cover={Toradas}
-                        title="Spaguetti Gambe" 
-                        description={"Massa fresca com caramões e pesto."} 
-                        price={"41,90"}
-                    />
+                    {
+                        Dish.map(dish => (
+                        <Card
+                        cover={dish.photo}
+                        title={dish.title} 
+                        description={dish.description} 
+                        price={dish.price}
+                        />
+                        ))
+                    }
                 </Section> 
 
                 <Section title="Sobremesas">
-                    <Card
-                        cover={sobremesa}
-                        title={"Macarons"}
-                        description={"Farinha de ameêndoas, manteiga, claras e açúcar"}
-                        price={"79,90"}
-                    />
+                {
+                        Dessert.map(dish => (
+                        <Card
+                        cover={dish.photo}
+                        title={dish.title} 
+                        description={dish.description} 
+                        price={dish.price}
+                        />
+                        ))
+                        
+                    }
                 </Section>
 
                 <Section title="Bebidas">
-                    <Card
-                        cover={Maracuja}
-                        title={"Suco de Maracujá"}
-                        description={"Suco de Maracujá gelado, cremoso, docinho"}
-                        price={"13,90"}
-                    />
+                    {
+                        Beverages.map(dish => (
+                        <Card
+                        cover={dish.photo}
+                        title={dish.title} 
+                        description={dish.description} 
+                        price={dish.price}
+                        />
+                        ))
+                    }
                 </Section>
 
             </div>

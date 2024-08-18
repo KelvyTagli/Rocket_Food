@@ -4,16 +4,14 @@ import { Plus, Minus } from "@phosphor-icons/react";
 import { Button } from '../Button'
 import { Like } from '../Like';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export function Card({cover, title, description, price,id}) {
-
-    id = 1;
-    
     return(
         <Container>
             <Like/>
             <Link to={`/Rocket_Food/Dish/${id}`} className='Food'>
-                <img src={cover} alt="" />
+                <img src={cover} alt="Foto do Prato" />
                 <h3>{title} {'>'}</h3>
                 <p>{description}</p>
             </Link>
