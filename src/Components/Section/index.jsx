@@ -2,14 +2,13 @@ import { Container, Content } from "./styles";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Pagination } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import { register } from "swiper/element";
+import { Navigation } from 'swiper/modules';
 
 register();
 
@@ -20,17 +19,13 @@ export function Section({title, children}) {
             <h2>{title}</h2>
             <Content>
                 <Swiper
-                    slidesPerView={1}
-                    freeMode={true}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    modules={[FreeMode, Pagination]}
+                    slidesPerView={4}
+                    navigation={true}
+                    modules={[Navigation]}
                     >
-                    
-                   <SwiperSlide className="mySwiper">
-                        {children}
-                   </SwiperSlide>
+                      {
+                        children.map(child =>  <SwiperSlide className="mySwiper">{child}</SwiperSlide>)
+                      }
                 </Swiper>
             </Content>
         </Container>

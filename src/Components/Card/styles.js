@@ -24,11 +24,11 @@ export const Container = styled.div`
         margin: 2.6rem auto;
         text-align: center;
 
-        color: ${({theme}) => theme.COLORS.Light_100};
+        color: ${({theme}) => theme.COLORS.Light_300};
 
 
         > img {
-            width: 176px;
+            width: 166px;
             height: 100%;
             border-radius: 50%;
             margin: -1rem auto 1rem;
@@ -39,7 +39,7 @@ export const Container = styled.div`
         }
 
         > p {
-            font-size: 13px;
+            font-size: 12px;
             color: ${({theme}) => theme.COLORS.Light_500};
         }
     }
@@ -47,8 +47,6 @@ export const Container = styled.div`
 
 export const Food = styled.a`
     position: relative;
-
-    
 `
 
 export const Price = styled.span`
@@ -58,7 +56,7 @@ export const Price = styled.span`
     font-size: 30px;
     color: ${({theme}) => theme.COLORS.Cake_200};
 
-    margin-top: 2.5rem;
+    margin-top: 7.5rem;
 `
 
 export const Amount = styled.div`

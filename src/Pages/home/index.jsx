@@ -6,7 +6,7 @@ import { Section } from "../../Components/Section";
 import { Card } from "../../Components/Card";
 import { Footer } from "../../Components/Footer";
 
-import { useEffect, useState } from "react";
+import { Children, useEffect, useState } from "react";
 import { api } from "../../Services/api";
 
 
@@ -52,20 +52,24 @@ useEffect(() => {
                 <Section title="Refeições">
                     {
                         Dish.map(dish => (
-                        <Card
-                        cover={dish.photo}
-                        title={dish.title} 
-                        description={dish.description} 
-                        price={dish.price}
-                        />
-                        ))
+                            <Card
+                            key={dish.id}
+                            id={dish.id}
+                            cover={dish.photo}
+                            title={dish.title} 
+                            description={dish.description} 
+                            price={dish.price}
+                            />
+                            ))
                     }
                 </Section> 
 
                 <Section title="Sobremesas">
-                {
+                    {
                         Dessert.map(dish => (
                         <Card
+                        key={dish.id}
+                        id={dish.id}
                         cover={dish.photo}
                         title={dish.title} 
                         description={dish.description} 
@@ -80,6 +84,8 @@ useEffect(() => {
                     {
                         Beverages.map(dish => (
                         <Card
+                        key={dish.id}
+                        id={dish.id}
                         cover={dish.photo}
                         title={dish.title} 
                         description={dish.description} 

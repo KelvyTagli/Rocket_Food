@@ -7,9 +7,7 @@ export const Container = styled.div`
     display: grid;
     grid-template-areas: "header" "button_back" "description" "footer";
     grid-template-rows: auto auto auto 8rem;
-
     
-    border: 1px solid white;
     > .Button_Back {
         grid-area: button_back;
 
@@ -23,7 +21,6 @@ export const Container = styled.div`
 
         font-size: 1.8rem;
         font-variant: small-caps;
-        /* font-weight: bold; */
 
         color: ${({theme}) => theme.COLORS.Light_300};
     }
