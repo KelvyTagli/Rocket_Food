@@ -1,4 +1,4 @@
-import { Container, Description, ingredients} from "./styles";
+import { Container, Description, Ingredients} from "./styles";
 
 import {Header} from '../../Components/Header'
 import {Footer} from '../../Components/Footer'
@@ -10,26 +10,59 @@ import {Tag} from '../../Components/Tag'
 import { Counter } from "../../Components/Counter";
 import { Link } from "react-router-dom";
 
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { api } from "../../Services/api";
+
 export function Dish() {
+
+    const params = useParams()
+    const [data, setdata] = useState([])
+
+    useEffect(() => {
+        async function fetchDish() {
+            const response = await api.get(`/dish/${params.id}`);
+            setdata(response.data);
+        }
+        fetchDish();
+    },[])
+
+    console.log(data.photo)
+
+    const dishphoto = data.photo ? `${api.defaults.baseURL}/photoFiles/${data.photo}` : Maracuja
+
+    const [coverDish, setcoverDish] = useState(dishphoto)
+
     return(
         <Container>
             <Header/>
             <Link to="/Rocket_Food/" className="Button_Back">
                 <CaretLeft size={30} />Voltar
             </Link>
-            <Description>
-                <img src={Maracuja} alt="suco de maracujá" />
+            {
+                data &&
+                <Description>
+                <img src={coverDish} alt="" />
                 <div>
-                    <h1>Salada Ravanello</h1>
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
-                    <ingredients>
-                        <Tag title={"Suco"}/>
-                        <Tag title={"Suco"}/>
-                        <Tag title={"Suco"}/>
-                    </ingredients>
-                    <Counter title={"23,90"}/>
+                    <h1>{data.title}</h1>
+                    <p>{data.description}</p>
+                    {
+                        data.tags &&
+                        <Ingredients>
+                            {
+                                data.tags.map(tag => (
+                                    <Tag 
+                                    key={tag.id}
+                                    title={tag.name}
+                                    />
+                                ))
+                            }
+                        </Ingredients>
+                    }
+                    <Counter title={data.price}/>
                 </div>
             </Description>
+            }
             <Footer/>
         </Container>
     )

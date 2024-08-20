@@ -62,7 +62,7 @@ export const Description = styled.div`
     }
 `
 
-export const ingredients = styled.div`
+export const Ingredients = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
