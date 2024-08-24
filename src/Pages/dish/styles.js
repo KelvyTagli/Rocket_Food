@@ -38,6 +38,7 @@ export const Description = styled.div`
 
     > img {
         width: 350px;
+        border-radius: 50%;
     }
 
     > div {
