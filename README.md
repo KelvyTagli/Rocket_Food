@@ -3,7 +3,7 @@
 
 **Explorer - Desafio Final**
 
-![Capa do Projeto](/dist/Capa.png)
+![Capa do Projeto](/src/assets/Capa.png)
 
 ## Descrição
 
