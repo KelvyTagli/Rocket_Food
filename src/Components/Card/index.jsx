@@ -13,9 +13,19 @@ export function Card({cover, title, description, price,id}) {
     const [coverDish, setcoverDish] = useState(dishUrl)
     const navigator = useNavigate()
 
+    const [counter, setCounter] = useState(0)
+
     function handlerDetails(id) {
         navigator(`/Rocket_Food/Dish/${id}`)
     }
+
+    const handlerCounterUp = () => {
+        setCounter(counter + 1)
+    };
+
+    const handlerCounterDown = () => {
+        setCounter(counter - 1)
+    };
     
     return(
         <Container>
@@ -28,9 +38,9 @@ export function Card({cover, title, description, price,id}) {
             <Price>R$ {price}</Price>
             <Amount>
                 <Counter>
-                    <button><Minus size={18}/></button>
-                    <span>0</span>
-                    <button><Plus size={18}/></button>
+                    <button onClick={handlerCounterDown}><Minus size={18}/></button>
+                    <span>{counter}</span>
+                    <button onClick={handlerCounterUp}><Plus size={18}/></button>
                 </Counter>
                 <Button title="Incluir"/>
             </Amount>
