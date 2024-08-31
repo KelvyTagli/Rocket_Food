@@ -7,9 +7,17 @@ import * as auth from "../../Hooks/auth";
 
 import { Link } from "react-router-dom";
 import {Button} from "../Button"
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
+
     const {signOut} = auth.useAuth()
+    const navigator = useNavigate()
+
+    function handlerOrders() {
+        navigator(`/Rocket_Food/Orders`)
+    }
+
     return(
         <Container>
             <Section>
@@ -23,12 +31,11 @@ export function Header() {
                 </Search>
             </Section>
             <Request>
-                <Link to='/Rocket_Food/'>
-               <Button
+                <Button
                     icon={Receipt}
                     title={"Pedidos"}
+                    onClick={handlerOrders}
                 />
-               </Link>
             </Request>
             <Logout>
                 <SignOut size={30} onClick={signOut}/>
