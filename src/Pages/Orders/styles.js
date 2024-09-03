@@ -4,38 +4,55 @@ export const Container = styled.div `
     width: 100%;
     height: 100vh;
 
-    > .Button_Back {
+    display: grid;
+    grid-template-areas: "header" "orders" "footer";
+    grid-template-rows: auto auto 7.7rem;
 
-        width: 100px;
-        height: 34px;
+    gap: 30px;
 
-        display: flex;
-        align-items: center;
-
-        margin: 4rem 0 0 4rem;
-
-        font-size: 1.8rem;
-
-        color: ${({theme}) => theme.COLORS.Light_300};
-    }
 `
 
 export const Orders = styled.div `
     display: grid;
+    grid-area: orders;
 
     grid-template-columns: 1fr 1fr; 
-    gap: 100px;
+    gap: 10px;
 
     justify-items: center;
+
+    margin-bottom: 20rem;
 `
 
 export const Request = styled.div `
-    width: 444px;
-    height: 480px;
+    
 
     grid-area: orders;
     grid-column: 1;
-    border: 1px solid white;
+
+    display: grid;
+    grid-template-areas: "titulo" "info" "price";
+    grid-template-rows: auto auto 7.7rem;
+
+    > .info_orders {
+        grid-area: info;
+    }
+
+    > h1 {
+        grid-area: titulo;
+        font-weight: 400;
+    }
+
+    >.price {
+        grid-area: price;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+`
+
+export const DishOrders = styled.div `
+    width: 444px;
+    height: 480px;
 `
 
 export const Payment = styled.div `
@@ -44,5 +61,4 @@ export const Payment = styled.div `
 
     grid-area: payment;
     grid-column: 2;
-    border: 1px solid white;
 `

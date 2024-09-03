@@ -1,24 +1,28 @@
 import { Container, Request, Orders, Payment } from './styles';
 import { Header } from '../../Components/Header'
+import { Footer} from '../../Components/Footer'
+import { InfoOrders } from '../../Components/List_Orders';
 
-import { Link } from 'react-router-dom';
-import { CaretLeft } from "@phosphor-icons/react";
 
 export function Order() {
     return(
         <Container>
             <Header/>
-            <Link to="/Rocket_Food/" className="Button_Back">
-                <CaretLeft size={30} />Voltar
-            </Link>
             <Orders>
                 <Request>
                     <h1>Meu pedido</h1>
+                    <div className='info_orders'>
+                        <InfoOrders/>
+                        <InfoOrders/>
+                        <InfoOrders/>
+                    </div>
+                    <h1 className='price'>Total: R$ 200,00</h1>
                 </Request>
                 <Payment>
                     <h1>Pagamento</h1>
                 </Payment>
             </Orders>
+            <Footer/>
         </Container>
     )
 }
