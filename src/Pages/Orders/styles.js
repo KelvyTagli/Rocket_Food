@@ -17,11 +17,10 @@ export const Orders = styled.div `
     grid-area: orders;
 
     grid-template-columns: 1fr 1fr; 
-    gap: 10px;
 
     justify-items: center;
 
-    margin-bottom: 20rem;
+    margin-bottom: 15rem;
 `
 
 export const Request = styled.div `
@@ -34,6 +33,8 @@ export const Request = styled.div `
     grid-template-areas: "titulo" "info" "price";
     grid-template-rows: auto auto 7.7rem;
 
+    gap: 5rem;
+
     > .info_orders {
         grid-area: info;
     }
@@ -43,10 +44,14 @@ export const Request = styled.div `
         font-weight: 400;
     }
 
-    >.price {
+    .price {
         grid-area: price;
         font-weight: 600;
         font-size: 2rem;
+
+        margin-top: 4rem;
+
+        letter-spacing: 1px;
     }
 `
 

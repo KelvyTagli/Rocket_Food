@@ -15,8 +15,9 @@ export function Order() {
                         <InfoOrders/>
                         <InfoOrders/>
                         <InfoOrders/>
+                        <InfoOrders/>
+                        <h1 className='price'>Total: R$ 200,00</h1>
                     </div>
-                    <h1 className='price'>Total: R$ 200,00</h1>
                 </Request>
                 <Payment>
                     <h1>Pagamento</h1>
