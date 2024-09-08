@@ -1,6 +1,8 @@
 import { Container, Request, Orders, Payment } from './styles';
+
 import { Header } from '../../Components/Header'
 import { Footer} from '../../Components/Footer'
+import { CardCredit } from '../../Components/Payment';
 import { InfoOrders } from '../../Components/List_Orders';
 
 
@@ -21,6 +23,7 @@ export function Order() {
                 </Request>
                 <Payment>
                     <h1>Pagamento</h1>
+                    <CardCredit/>
                 </Payment>
             </Orders>
             <Footer/>

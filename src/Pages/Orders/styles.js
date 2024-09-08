@@ -25,7 +25,6 @@ export const Orders = styled.div `
 
 export const Request = styled.div `
     
-
     grid-area: orders;
     grid-column: 1;
 
@@ -41,13 +40,15 @@ export const Request = styled.div `
 
     > h1 {
         grid-area: titulo;
-        font-weight: 400;
+        font-weight: 500;
+        line-height: 44.8px;
     }
 
     .price {
         grid-area: price;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 2rem;
+        
 
         margin-top: 4rem;
 
@@ -66,4 +67,9 @@ export const Payment = styled.div `
 
     grid-area: payment;
     grid-column: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
 `
