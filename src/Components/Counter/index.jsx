@@ -2,6 +2,7 @@ import { Container} from "./styles";
 import { Button } from "../Button"
 
 import { Minus, Plus } from "@phosphor-icons/react";
+import { useState } from "react";
 
 export function Counter({ title, quantity, setQuantity, onInclude }) {
     return (

@@ -15,6 +15,8 @@ export function Card({cover, title, description, price, id}) {
 
     const navigator = useNavigate();
 
+    const [counter, setCounter] = useState(0)
+
     function handlerDetails(id) {
         navigator(`/Rocket_Food/Dish/${id}`);
     }

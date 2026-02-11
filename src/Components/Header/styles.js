@@ -7,8 +7,6 @@ export const Container = styled.header`
     height: 9rem;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     background-color: ${({theme}) => theme.COLORS.Dark_600};
     margin-bottom: 3rem;
