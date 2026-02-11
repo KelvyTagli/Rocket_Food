@@ -1,5 +1,4 @@
-import {Container, Price, Amount, Counter} from './styles'
-
+import { Container, Price, Amount, Counter } from './styles'
 import { Plus, Minus } from "@phosphor-icons/react";
 import { Button } from '../Button'
 import { Like } from '../Like';
@@ -7,17 +6,35 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { api } from '../../Services/api';
 
-export function Card({cover, title, description, price,id}) {
+export function Card({cover, title, description, price, id}) {
     const dishUrl = cover ? `${api.defaults.baseURL}/photoFiles/${cover}` : cover;
 
-    const [coverDish, setcoverDish] = useState(dishUrl)
-    const navigator = useNavigate()
+    const [coverDish] = useState(dishUrl);
+
+    const [quantity, setQuantity] = useState(1); 
+
+    const navigator = useNavigate();
 
     function handlerDetails(id) {
-        navigator(`/Rocket_Food/Dish/${id}`)
+        navigator(`/Rocket_Food/Dish/${id}`);
     }
+
+    function handleAdd() { setQuantity(prev => prev + 1); }
     
-    return(
+    function handleRemove() { setQuantity(prev => (prev > 1 ? prev - 1 : 1)); }
+
+    function handleInclude() {
+        const cartItem = { id, title, price, quantity, cover: coverDish };
+        
+        const existingCart = JSON.parse(localStorage.getItem('@rocketfood:Produtos')) || [];
+        
+        existingCart.push(cartItem);
+        
+        localStorage.setItem('@rocketfood:Produtos', JSON.stringify(existingCart));
+        alert("Item adicionado ao carrinho!");
+    }
+
+    return (
         <Container>
             <Like/>
             <a onClick={() => handlerDetails(id)} className='Food'>
@@ -28,12 +45,12 @@ export function Card({cover, title, description, price,id}) {
             <Price>R$ {price}</Price>
             <Amount>
                 <Counter>
-                    <button><Minus size={18}/></button>
-                    <span>0</span>
-                    <button><Plus size={18}/></button>
+                    <button onClick={handleRemove}><Minus size={18}/></button>
+                    <span>{String(quantity).padStart(2, '0')}</span>
+                    <button onClick={handleAdd}><Plus size={18}/></button>
                 </Counter>
-                <Button title="Incluir"/>
+                <Button title="Incluir" onClick={handleInclude}/>
             </Amount>
         </Container>
-    )
+    );
 }

@@ -9,6 +9,8 @@ export const Container = styled.div`
         background-color: transparent;
         border: none;
 
+        margin: 0 2rem 0 2rem;
+
         color: ${({theme}) => theme.COLORS.Light_100};
     }
 

@@ -11,6 +11,7 @@ export const Container = styled.header`
     justify-content: center;
 
     background-color: ${({theme}) => theme.COLORS.Dark_600};
+    margin-bottom: 3rem;
     
 `
 
