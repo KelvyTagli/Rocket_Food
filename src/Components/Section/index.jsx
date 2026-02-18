@@ -1,9 +1,8 @@
 import { Container, Content } from "./styles";
 
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -24,7 +23,7 @@ export function Section({title, children}) {
                     modules={[Navigation]}
                     >
                       {
-                        children.map(child =>  <SwiperSlide className="mySwiper">{child}</SwiperSlide>)
+                        children.map(child =>  <SwiperSlide key={child.key} className="mySwiper">{child}</SwiperSlide>)
                       }
                 </Swiper>
             </Content>

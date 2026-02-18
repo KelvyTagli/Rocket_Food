@@ -1,0 +1,60 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+    width: 304px;
+    height: 462px;
+
+    display: grid;
+
+    grid-template-areas: "like" "food" "price" "button";
+    grid-template-rows: 1.6rem;
+
+    padding: 1rem;
+
+    background-color: ${({theme}) => theme.COLORS.Dark_200};
+    border-radius: 8px;
+
+    > .Food {
+        display: grid;
+        grid-area: food;
+
+        width: 256px;
+        height: 176px;
+        
+        margin: 2.6rem auto;
+        text-align: center;
+
+        color: ${({theme}) => theme.COLORS.Light_300};
+
+
+        > img {
+            width: 166px;
+            height: 100%;
+            border-radius: 50%;
+            margin: -1rem auto 1rem;
+        }
+
+        > h3 {
+            font-size: 22px;
+        }
+
+        > p {
+            font-size: 12px;
+            color: ${({theme}) => theme.COLORS.Light_500};
+        }
+    }
+`
+
+export const Food = styled.a`
+    position: relative;
+`
+
+export const Price = styled.span`
+    grid-area: price;
+    text-align: center;
+
+    font-size: 30px;
+    color: ${({theme}) => theme.COLORS.Cake_200};
+
+    margin-top: 7.5rem;
+`

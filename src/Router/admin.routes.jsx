@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 
-import { Admin } from '../Pages/Admin'
+import { Admin } from '../Pages/Admin/Home_Admin'
 import { Error } from '../Pages/404'
 
 export function AdminRoutes() {

@@ -66,14 +66,14 @@ useEffect(() => {
 
                 <Section title="Sobremesas">
                     {
-                        Dessert.map(dish => (
+                        Dessert.map(dessert => (
                         <Card
-                        key={dish.id}
-                        id={dish.id}
-                        cover={dish.photo}
-                        title={dish.title} 
-                        description={dish.description} 
-                        price={dish.price}
+                        key={dessert.id}
+                        id={dessert.id}
+                        cover={dessert.photo}
+                        title={dessert.title} 
+                        description={dessert.description} 
+                        price={dessert.price}
                         />
                         ))
                         
@@ -82,14 +82,14 @@ useEffect(() => {
 
                 <Section title="Bebidas">
                     {
-                        Beverages.map(dish => (
+                        Beverages.map(beverages => (
                         <Card
-                        key={dish.id}
-                        id={dish.id}
-                        cover={dish.photo}
-                        title={dish.title} 
-                        description={dish.description} 
-                        price={dish.price}
+                        key={beverages.id}
+                        id={beverages.id}
+                        cover={beverages.photo}
+                        title={beverages.title} 
+                        description={beverages.description} 
+                        price={beverages.price}
                         />
                         ))
                     }
