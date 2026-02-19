@@ -29,9 +29,13 @@ function AuthProvider({children}) {
 
     
     function signOut() {
+
+        
+
         localStorage.removeItem("@rocketfood:user")
         localStorage.removeItem("@rocketfood:token")
 
+        
         setData({})
     }
 
