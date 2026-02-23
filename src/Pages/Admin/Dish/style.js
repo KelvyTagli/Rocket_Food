@@ -21,6 +21,7 @@ export const Container = styled.div`
 
         font-size: 1.8rem;
         font-variant: small-caps;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
         color: ${({theme}) => theme.COLORS.Light_300};
     }

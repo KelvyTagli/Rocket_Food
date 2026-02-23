@@ -7,7 +7,7 @@ import { Button } from "../../../Components/Button";
 
 import { CaretLeft } from "@phosphor-icons/react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../../Services/api";
@@ -17,6 +17,13 @@ export function Dish_admin() {
 
         const params = useParams();
         const [data, setData] = useState(null);
+
+        const navigator = useNavigate()
+
+        function handlerEdit() {
+            const id = params.id 
+            navigator(`/Rocket_Food/Edit/${id}`)
+        }
     
         useEffect(() => {
             async function fetchDish() {
@@ -54,7 +61,10 @@ export function Dish_admin() {
                                     ))}
                                 </Ingredients>
                             )}
-                            <Button title={"Editar Prato"}/>
+                            <Button 
+                                title={"Editar Prato"}
+                                onClick={handlerEdit}
+                            />
                         </div>
                     </Description>
                 )}
