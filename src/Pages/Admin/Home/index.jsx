@@ -79,7 +79,7 @@ export function Admin() {
                     }
                 </Section>
 
-                <Section title="Sobremesas">
+                <Section title="Bebidas">
                     {
                         Beverages.map((beverages) => (
                             <Card_admin 

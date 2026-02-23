@@ -52,12 +52,12 @@ export const Description = styled.div`
         font-family: "Poppins",sans-serif;
         color: ${({theme}) => theme.COLORS.Light_300};
 
-        > h1 {
+        > .title {
             font-size: 40px;
             font-weight: 500;
         }
 
-        > p {
+        > label {
             font-weight: 400;
             font-size: 23px;
         }

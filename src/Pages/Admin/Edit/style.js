@@ -40,7 +40,6 @@ export const Edit_Form = styled.div`
     display: grid;
     margin-left: 15rem;
     
-    border: 2px solid white;
 
     
     > .Principal {
@@ -49,27 +48,63 @@ export const Edit_Form = styled.div`
         
         display: flex;
         justify-content: space-between;
+
         
-        
-        
-        
-        > div {
-            border: 1px solid white;
+        > .img {
             
+            > button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+
+                width: 229px;
+                height: 48px;
+
+
+                background-color: ${({theme}) => theme.COLORS.Dark_800};
+                color: ${({theme}) => theme.COLORS.Light_100};
+
+                border-radius: 8px;
+                
+            }
         }
         
+        
         > .name {
-            
+            >label {
+                display: block;
+            }
+
             > input {
-                 background-color: transparent;
+                 background-color: ${({theme}) => theme.COLORS.Dark_800};
                 color: ${({theme}) => theme.COLORS.Light_500};
                 border: none;
+
+                border-radius: 8px;
     
                 width: 463px;
                 height: 48px;
 
             }
         }
+
+         > .category {
+
+            >label {
+                display: block;
+            }
+
+            > .select {
+                background-color: ${({theme}) => theme.COLORS.Dark_800};
+                color: ${({theme}) => theme.COLORS.Light_100};
+
+                border-radius: 8px;
+
+                width: 364px;
+                height: 48px;
+            }
+         }
 
     }
 

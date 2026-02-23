@@ -1,13 +1,13 @@
 import { Container,Edit_Form, } from './style'
 import { Admin_Header } from '../../../Components/admin_Header'
-import { CaretLeftIcon } from '@phosphor-icons/react'
+import { CaretLeftIcon, UploadSimpleIcon } from '@phosphor-icons/react'
 import { Footer } from '../../../Components/Footer';
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../../Services/api";
-import { Button } from '../../../Components/Button';
+
 
 export function Edit() {
 
@@ -34,22 +34,29 @@ export function Edit() {
             </Link>
             {data && (
                 <Edit_Form>
-                    <h2>Editar pratos</h2>
+                    <h3>Editar pratos</h3>
 
                     <div className='Principal'>
-                        <div>
-                            <h4>imagem do prato</h4>
-                            <input type="file" />
+                        <div className='img'>
+                            <label>imagem do prato</label>
+                            <button>
+                                <UploadSimpleIcon size={24}/>
+                                Selecione imagem
+                            </button>
                         </div>
 
                         <div className='name'>
-                            <h4>Nome</h4>
+                            <label>Nome</label>
                             <input type="text" placeholder={`${data.title}`} />
                         </div>
 
-                        <div>
-                            <h4>Categoria</h4>
-                            <input type="text" placeholder="" />
+                        <div className='category'>
+                            <label>Categoria</label>
+                            <select className='select'>
+                                <option value="Refeicoes">Refeições</option>
+                                <option value="sobremesas">Sobremesas</option>
+                                <option value="bebidas">Bebidas</option>
+                            </select>
                         </div>
                     </div>
 

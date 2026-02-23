@@ -49,8 +49,8 @@ export function Dish_admin() {
                     <Description>
                         <img src={dishphoto} alt={data.title} />
                         <div>
-                            <h1>{data.title}</h1>
-                            <p>{data.description}</p>
+                            <label className="title">{data.title}</label>
+                            <label>{data.description}</label>
                             {data.tags && (
                                 <Ingredients>
                                     {data.tags.map(tag => (

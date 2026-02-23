@@ -16,8 +16,8 @@ export function Admin_Header() {
                 <Logo>
                     <img src={Polygon} alt="Polygon" />
                     <div className="Titulo">
-                        <h2>food explorer</h2>
-                        <p>admin</p>
+                        <label className="title">food explorer</label>
+                        <label className="sub_title">admin</label>
                     </div>
                 </Logo>
                 <Search>

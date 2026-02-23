@@ -44,12 +44,12 @@ export const Logo = styled.div`
         align-items: end;
         flex-direction: column;
 
-        > h2 {
+        > .title {
             font-size: 25px;
             font-weight: 500;
         }
 
-        > p {
+        > .sub_title {
             font-size: 13px;
             color: ${({theme}) => theme.COLORS.Cake_200};
         }
