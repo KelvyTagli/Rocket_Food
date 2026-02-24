@@ -41,7 +41,8 @@ export const Logo = styled.div`
         height: 33px;
     }
 
-    > h2 {
+    > label {
+        font-size:20px ;
         font-weight: 500;
     }
 `

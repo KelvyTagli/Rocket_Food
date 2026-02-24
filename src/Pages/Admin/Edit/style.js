@@ -10,6 +10,8 @@ export const Container = styled.div`
 
     align-items: center;
 
+    gap: 1rem;
+
 
     > .Button_Back {
         grid-area: button_back;
@@ -108,7 +110,7 @@ export const Edit_Form = styled.div`
 
     }
 
-    > .tags {
+    > .ingredientes_preco {
         width: 100%;
         height: 80px;
 

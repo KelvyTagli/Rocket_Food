@@ -5,8 +5,8 @@ export function Billboard() {
         <Container>
             <Image />
             <Title>
-                <h1>Sabores inigualáveis</h1>
-                <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+                <label>Sabores inigualáveis</label>
+                <label className="sub_title">Sinta o cuidado do preparo com ingredientes selecionados</label>
             </Title>
         </Container>
     )

@@ -15,6 +15,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
     display: flex;
+
+    
 `
 
 export const Image = styled.div`
@@ -37,14 +39,14 @@ export const Title = styled.div`
 
     margin: 50px auto;
 
-    > h1 {
+    > label {
         font-size: 35px;
         font-family: "Poppins" sans-serif;
         letter-spacing: 1px;
         font-weight: 400;
     }
 
-    > p {
+    > .sub_title {
         font-size: 1.6rem;
         font-family: "Roboto", sans-serif;
         color: ${({theme}) => theme.COLORS.Light_400};

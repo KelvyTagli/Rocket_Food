@@ -61,7 +61,28 @@ export const Description = styled.div`
             font-weight: 400;
             font-size: 23px;
         }
+
+        > .edit {
+            display: flex;
+            justify-content: center;
+
+            width: 131px;
+            height: 48px;
+
+
+            > button {
+                width: 100%;
+
+                font-size: 15px;
+                border-radius: 8px;
+
+                background-color: ${({theme}) => theme.COLORS.Tomato_100};
+
+
+            }
+        }
     }
+
 `
 
 export const Ingredients = styled.div`

@@ -22,7 +22,7 @@ export function Header() {
             <Section>
                 <Logo>
                     <img src={Polygon} alt="Polygon" />
-                    <h2>food explorer</h2>
+                    <label>food explorer</label>
                 </Logo>
                 <Search>
                     <MagnifyingGlass size={20}/>

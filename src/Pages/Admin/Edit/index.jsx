@@ -13,6 +13,9 @@ export function Edit() {
 
     const params = useParams();
     const [data, setData] = useState(null);
+
+    const [tags, setTags] = useState([])
+    const [newTag, setNewTag] = useState("")
         
             useEffect(() => {
                 async function fetchDish() {
@@ -25,6 +28,15 @@ export function Edit() {
                 }
                 fetchDish();
             }, [params.id]);
+
+    function handleAddTag() {
+        setTags(prevState => [...prevState, newTag])
+        setNewTag('')
+     }
+
+    function handleRemoveTag(deleted) {
+        setTags(prevState => prevState.filter(tags => tags !== deleted))
+     }
 
     return(
         <Container>
@@ -60,8 +72,10 @@ export function Edit() {
                         </div>
                     </div>
 
-                    <div className='tags'>
-
+                    <div className='ingredientes_preco'>
+                        <div className='tags'>
+                             <label>Ingredientes</label>
+                        </div>
                     </div>
 
                     <div className='descricao'>

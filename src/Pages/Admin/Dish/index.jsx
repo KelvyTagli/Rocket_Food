@@ -3,7 +3,6 @@ import { Admin_Header } from "../../../Components/admin_Header";
 import { Footer } from "../../../Components/Footer";
 import { Tag } from '../../../Components/Tag';
 import Maracuja from '../../../assets/maracuja.png';
-import { Button } from "../../../Components/Button";
 
 import { CaretLeft } from "@phosphor-icons/react";
 
@@ -61,10 +60,11 @@ export function Dish_admin() {
                                     ))}
                                 </Ingredients>
                             )}
-                            <Button 
-                                title={"Editar Prato"}
-                                onClick={handlerEdit}
-                            />
+                            <div className="edit">
+                                <button  onClick={handlerEdit}>
+                                    Editar Prato
+                                </button>
+                            </div>
                         </div>
                     </Description>
                 )}
