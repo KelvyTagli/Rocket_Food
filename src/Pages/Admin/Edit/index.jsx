@@ -1,5 +1,5 @@
 import { Container,Edit_Form, } from './style'
-import { Admin_Header } from '../../../Components/admin_Header'
+import { Admin_Header } from '../../../Components/Components_ADMIN/admin_Header'
 import { CaretLeftIcon, UploadSimpleIcon } from '@phosphor-icons/react'
 import { Footer } from '../../../Components/Footer';
 
@@ -7,15 +7,17 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { api } from "../../../Services/api";
+import { NoteItem } from '../../../Components/Components_ADMIN/admin_Tag';
 
 
 export function Edit() {
 
     const params = useParams();
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({tag: []});
 
-    const [tags, setTags] = useState([])
-    const [newTag, setNewTag] = useState("")
+    const [newTag, setNewTag] = useState("");
+
+    console.log(data);
         
             useEffect(() => {
                 async function fetchDish() {
@@ -29,14 +31,13 @@ export function Edit() {
                 fetchDish();
             }, [params.id]);
 
-    function handleAddTag() {
-        setTags(prevState => [...prevState, newTag])
-        setNewTag('')
-     }
+            function handleRemoveTag(deleted) {
+                setData(prevState => ({
+                ...prevState,
+                tag: prevState.tag.filter(tag => tag.nome !== deleted)
+                }));
+            }
 
-    function handleRemoveTag(deleted) {
-        setTags(prevState => prevState.filter(tags => tags !== deleted))
-     }
 
     return(
         <Container>
@@ -73,9 +74,18 @@ export function Edit() {
                     </div>
 
                     <div className='ingredientes_preco'>
-                        <div className='tags'>
                              <label>Ingredientes</label>
-                        </div>
+                             <div className='tags'>
+                                {
+                                    data?.tags?.map(tag => (
+                                        <NoteItem
+                                            key={String(tag.id)}
+                                            value={tag.name}
+                                            // onClick={() => {handleRemoveTag(tag.nome)}}
+                                        />
+                                    ))
+                                }            
+                            </div>
                     </div>
 
                     <div className='descricao'>

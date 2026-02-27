@@ -1,5 +1,5 @@
 import { Container,Price } from "./style";
-import { api } from "../../Services/api";
+import { api } from "../../../Services/api";
 import { useState } from "react";
 
 import { Edit } from "../button_Edit";

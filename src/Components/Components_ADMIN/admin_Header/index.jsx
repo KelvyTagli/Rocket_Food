@@ -1,12 +1,12 @@
 import {MagnifyingGlass, SignOut, Receipt} from "@phosphor-icons/react"
 
 import { Container, Section,Logo, Search, Request, Logout} from "./styles";
-import Polygon from "../../assets/Polygon.svg"
+import Polygon from "../../../assets/Polygon.svg"
 
-import { Button } from "../Button";
+import { Button } from "../../Button";
 import { Link } from "react-router-dom";
 
-import * as auth from "../../Hooks/auth";
+import * as auth from "../../../Hooks/auth";
 
 export function Admin_Header() {
     const {signOut} = auth.useAuth()

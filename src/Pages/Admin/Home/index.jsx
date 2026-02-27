@@ -1,10 +1,10 @@
 import { Container } from "./styles";
 
-import { Admin_Header } from "../../../Components/admin_Header";
+import { Admin_Header } from "../../../Components/Components_ADMIN/admin_Header";
 import { Billboard } from "../../../Components/Billboard";
 import { Footer } from "../../../Components/Footer";
 import { Section } from "../../../Components/Section";
-import { Card_admin } from "../../../Components/admin_Card";
+import { Card_admin } from "../../../Components/Components_ADMIN/admin_Card";
 
 import { Children, useEffect, useState } from "react";
 import { api } from "../../../Services/api";

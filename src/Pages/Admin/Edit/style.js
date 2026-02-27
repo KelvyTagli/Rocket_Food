@@ -42,7 +42,6 @@ export const Edit_Form = styled.div`
     display: grid;
     margin-left: 15rem;
     
-
     
     > .Principal {
         width: 100%;
@@ -51,7 +50,6 @@ export const Edit_Form = styled.div`
         display: flex;
         justify-content: space-between;
 
-        
         > .img {
             
             > button {
@@ -93,6 +91,7 @@ export const Edit_Form = styled.div`
 
          > .category {
 
+
             >label {
                 display: block;
             }
@@ -101,10 +100,14 @@ export const Edit_Form = styled.div`
                 background-color: ${({theme}) => theme.COLORS.Dark_800};
                 color: ${({theme}) => theme.COLORS.Light_100};
 
-                border-radius: 8px;
+                
 
                 width: 364px;
                 height: 48px;
+
+                border-color: transparent;
+
+                border-radius: 8px;
             }
          }
 
@@ -117,7 +120,20 @@ export const Edit_Form = styled.div`
         display: inline;
         gap: 32px;
 
-        border: 1px solid white;
+        
+
+        > .tags {
+            display: flex;
+            align-items: center;
+
+            width: 837px;
+            height: 48px;
+            background-color: ${({theme}) => theme.COLORS.Dark_800};
+
+            border-radius: 8px;
+
+            gap: 32px;
+        }
     }
 
     > .descricao {

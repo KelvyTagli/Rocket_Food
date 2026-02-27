@@ -1,5 +1,5 @@
 import { Container, Description, Ingredients } from "./style";
-import { Admin_Header } from "../../../Components/admin_Header";
+import { Admin_Header } from "../../../Components/Components_ADMIN/admin_Header";
 import { Footer } from "../../../Components/Footer";
 import { Tag } from '../../../Components/Tag';
 import Maracuja from '../../../assets/maracuja.png';
