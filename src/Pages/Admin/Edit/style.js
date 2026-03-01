@@ -10,7 +10,7 @@ export const Container = styled.div`
 
     align-items: center;
 
-    gap: 1rem;
+    gap: 2rem;
 
 
     > .Button_Back {
@@ -114,36 +114,96 @@ export const Edit_Form = styled.div`
     }
 
     > .ingredientes_preco {
-        width: 100%;
-        height: 80px;
 
-        display: inline;
+        display: block;
         gap: 32px;
 
-        
+        height: 15rem;
 
+        
         > .tags {
+            
             display: flex;
             align-items: center;
 
-            width: 837px;
+            width: auto;
             height: 48px;
+
             background-color: ${({theme}) => theme.COLORS.Dark_800};
 
             border-radius: 8px;
 
-            gap: 32px;
+            gap: 22px;
+        }
+
+        > .price {
+             >label {
+                display: block;
+            }
+
+            > input {
+                 background-color: ${({theme}) => theme.COLORS.Dark_800};
+                color: ${({theme}) => theme.COLORS.Light_500};
+                
+
+                border: none;
+                border-radius: 8px;
+    
+                width: 251px;
+                height: 48px;
+
+                padding: 1rem;
+
+            }
         }
     }
 
     > .descricao {
+
         width: 100%;
         height: 204px;
 
-        display: inline;
+        > .description {
+            >textarea {
+                width: 1120px;
+                height: 172px;
+
+                background-color: ${({theme}) => theme.COLORS.Dark_800};
+                color: ${({theme}) => theme.COLORS.Light_500};
+
+                border: none;
+
+                padding: 1rem;
+            }
+        }
+    }
+
+    > .actions {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
         gap: 32px;
 
-        border: 1px solid white;
+
+        > .delete {
+            width: 135px;
+            height: 48px;
+
+            border-radius: 8px;
+
+            background-color: ${({theme}) => theme.COLORS.Dark_800};
+        }
+
+        > button {
+            width: 172px;
+            height: 48px;
+
+            background-color: ${({theme}) => theme.COLORS.Tomato_400};
+
+            border-radius: 8px;
+            
+        }
     }
 
 

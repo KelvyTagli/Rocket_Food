@@ -4,7 +4,7 @@ import { Plus, X } from "@phosphor-icons/react";
 
 export function NoteItem({ isNew, value, onClick, ...rest}){
     return(
-        <Container isNew={isNew}>
+        <Container $isNew={isNew}>
 
             <input 
                 type="text"
@@ -14,7 +14,7 @@ export function NoteItem({ isNew, value, onClick, ...rest}){
             />
 
             <button type="button" onClick={onClick} className={ isNew ? "button-add" : "button-delete"}>
-                {isNew ? <Plus size={20}/> : <X size={20}/>}
+                {isNew ? <Plus size={10}/> : <X size={10}/>}
             </button>
 
         </Container>

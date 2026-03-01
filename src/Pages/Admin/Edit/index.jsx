@@ -1,101 +1,178 @@
-import { Container,Edit_Form, } from './style'
-import { Admin_Header } from '../../../Components/Components_ADMIN/admin_Header'
-import { CaretLeftIcon, UploadSimpleIcon } from '@phosphor-icons/react'
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { CaretLeftIcon, UploadSimpleIcon } from '@phosphor-icons/react';
+
+import { api } from "../../../Services/api";
+import { Container, Edit_Form } from './style';
+
+import { Admin_Header } from '../../../Components/Components_ADMIN/admin_Header';
+import { NoteItem } from '../../../Components/Components_ADMIN/admin_Tag';
 import { Footer } from '../../../Components/Footer';
 
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { api } from "../../../Services/api";
-import { NoteItem } from '../../../Components/Components_ADMIN/admin_Tag';
-
-
 export function Edit() {
-
     const params = useParams();
-    const [data, setData] = useState({tag: []});
+    const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(true);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [price, setPrice] = useState("");
+    
+    const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
-    console.log(data);
-        
-            useEffect(() => {
-                async function fetchDish() {
-                    try {
-                        const response = await api.get(`/dish/${params.id}`);
-                        setData(response.data);
-                    } catch (error) {
-                        console.error("Error fetching dish data:", error);
-                    }
-                }
-                fetchDish();
-            }, [params.id]);
-
-            function handleRemoveTag(deleted) {
-                setData(prevState => ({
-                ...prevState,
-                tag: prevState.tag.filter(tag => tag.nome !== deleted)
-                }));
+    useEffect(() => {
+        async function fetchDish() {
+            try {
+                const response = await api.get(`/dish/${params.id}`);
+                const { title, description, category, price, tags } = response.data;
+                
+                setTitle(title);
+                setDescription(description);
+                setCategory(category && category.length > 0 ? category[0] : "");
+                setPrice(price);
+                setTags(tags.map(t => t.name)); 
+            } catch (error) {
+                console.error("Erro ao carregar prato:", error);
+                alert("Não foi possível carregar os dados do prato.");
+            } finally {
+                setLoading(false);
             }
+        }
+        fetchDish();
+    }, [params.id]);
 
 
-    return(
+    function handleAddTag() {
+        if (!newTag) return;
+        setTags(prevState => [...prevState, newTag]);
+        setNewTag("");
+    }
+
+    function handleRemoveTag(deleted) {
+        setTags(prevState => prevState.filter(tag => tag !== deleted));
+    }
+
+    async function handleUpdateDish() {
+        if(!title || !category || !price || !description) {
+            return alert("Preencha todos os campos!");
+        }
+
+        const updatedDish = {
+            title,
+            category,
+            price: String(price).replace("R$ ", ""), // Remove formatação antes de enviar
+            description,
+            tags
+        };
+        
+        try {
+            await api.put(`/dish/${params.id}`, updatedDish);
+            alert("Prato atualizado com sucesso!");
+            navigate(-1);
+        } catch (error) {
+            if(error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert("Não foi possível atualizar.");
+            }
+        }
+    }
+
+    if (loading) return <Container>Carregando...</Container>;
+
+    return (
         <Container>
-            <Admin_Header/>
-            <Link to={`/Rocket_Food/Dish/${params.id}`} className="Button_Back">
-                <CaretLeftIcon size={30}/> Voltar
+            <Admin_Header />
+            
+            <Link to={-1} className="Button_Back">
+                <CaretLeftIcon size={30} /> Voltar
             </Link>
-            {data && (
-                <Edit_Form>
-                    <h3>Editar pratos</h3>
 
-                    <div className='Principal'>
-                        <div className='img'>
-                            <label>imagem do prato</label>
-                            <button>
-                                <UploadSimpleIcon size={24}/>
-                                Selecione imagem
-                            </button>
-                        </div>
+            <Edit_Form>
+                <h3>Editar prato</h3>
 
-                        <div className='name'>
-                            <label>Nome</label>
-                            <input type="text" placeholder={`${data.title}`} />
-                        </div>
-
-                        <div className='category'>
-                            <label>Categoria</label>
-                            <select className='select'>
-                                <option value="Refeicoes">Refeições</option>
-                                <option value="sobremesas">Sobremesas</option>
-                                <option value="bebidas">Bebidas</option>
-                            </select>
-                        </div>
+                <div className='Principal'>
+                    <div className='img'>
+                        <label htmlFor="image">Imagem do prato</label>
+                        <button type="button">
+                            <UploadSimpleIcon size={24} />
+                            Selecione imagem
+                        </button>
                     </div>
 
-                    <div className='ingredientes_preco'>
-                             <label>Ingredientes</label>
-                             <div className='tags'>
-                                {
-                                    data?.tags?.map(tag => (
-                                        <NoteItem
-                                            key={String(tag.id)}
-                                            value={tag.name}
-                                            // onClick={() => {handleRemoveTag(tag.nome)}}
-                                        />
-                                    ))
-                                }            
-                            </div>
+                    <div className='name'>
+                        <label>Nome</label>
+                        <input 
+                            type="text" 
+                            value={title} 
+                            onChange={e => setTitle(e.target.value)}
+                        />
                     </div>
 
-                    <div className='descricao'>
-
+                    <div className='category'>
+                        <label>Categoria</label>
+                        <select 
+                            className='select' 
+                            value={category.category} 
+                            onChange={e => setCategory(e.target.value)}
+                        >
+                            <option value="">{category.category}</option>
+                            <option value="refeicoes">Refeições</option>
+                            <option value="sobremesas">Sobremesas</option>
+                            <option value="bebidas">Bebidas</option>
+                        </select>
                     </div>
-                    <button>salvar</button>
-                    <button>remover</button>
-                </Edit_Form>
-            )}
-            <Footer/>
+                </div>
+
+                <div className='ingredientes_preco'>
+                        <label>Ingredientes</label>
+                    <div className='tags'>
+                        {tags.map((tag, index) => (
+                            <NoteItem
+                                key={String(index)}
+                                value={tag}
+                                onClick={() => handleRemoveTag(tag)}
+                            />
+                        ))}
+                        
+                        <NoteItem
+                            isNew
+                            placeholder="Adicionar"
+                            onChange={e => setNewTag(e.target.value)}
+                            value={newTag}
+                            onClick={handleAddTag}
+                        />
+                    </div>
+                    <div className="price">
+                        <label>Preço</label>
+                        <input 
+                            type="text" 
+                            value={`R$ ${price}`} 
+                            onChange={e => setPrice(e.target.value)}
+                        />
+                    </div>
+                </div>
+
+                <div className='descricao'>
+                    <label>Descrição</label>
+                    <div className="description">
+                        <textarea 
+                            value={description}
+                            onChange={e => setDescription(e.target.value)}
+                            placeholder="Fale brevemente sobre o prato"
+                        />
+                    </div>
+                </div>
+
+                <div className="actions">
+                    <button type="button" className="delete">Excluir prato</button>
+                    <button type="button" onClick={handleUpdateDish}>Salvar alterações</button>
+                </div>
+            </Edit_Form>
+
+            <Footer />
         </Container>
-    )
+    );
 }
