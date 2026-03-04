@@ -55,28 +55,44 @@ export function Edit() {
     }
 
     async function handleUpdateDish() {
-        if(!title || !category || !price || !description) {
+        if (!title || !category || !price || !description) {
             return alert("Preencha todos os campos!");
         }
 
-        const updatedDish = {
-            title,
-            category,
-            price: String(price).replace("R$ ", ""), // Remove formatação antes de enviar
-            description,
-            tags
-        };
-        
+        // 1. Criamos o objeto FormData
+        const formData = new FormData();
+
+        // 2. Adicionamos os campos de texto
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("price", String(price).replace("R$ ", ""));
+
+        // 3. Adicionamos as tags (enviamos como string JSON para o backend tratar)
+        formData.append("tags", JSON.stringify(tags));
+
+        // 4. Se houver uma nova foto selecionada, adicionamos ela
+        if (imageFile) {
+            formData.append("photo", imageFile);
+        }
+
         try {
-            await api.put(`/dish/${params.id}`, updatedDish);
+            setLoading(true);
+            // Enviamos o formData no lugar do objeto comum
+            await api.put(`/dish/${params.id}`, formData, {
+                headers: { "Content-Type": "multipart/form-data" }
+            });
+
             alert("Prato atualizado com sucesso!");
             navigate(-1);
         } catch (error) {
-            if(error.response) {
+            if (error.response) {
                 alert(error.response.data.message);
             } else {
                 alert("Não foi possível atualizar.");
             }
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -149,7 +165,8 @@ export function Edit() {
                         <label>Preço</label>
                         <input 
                             type="text" 
-                            value={`R$ ${price}`} 
+                            value={`${price}`} 
+                            placeholder="R$"
                             onChange={e => setPrice(e.target.value)}
                         />
                     </div>
