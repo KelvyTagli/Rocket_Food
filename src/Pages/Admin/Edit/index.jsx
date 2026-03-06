@@ -16,11 +16,17 @@ export function Edit() {
     const [loading, setLoading] = useState(true);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState(""); // Deve ser sempre uma string
     const [price, setPrice] = useState("");
     
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
+    const [imageFile, setImageFile] = useState(null);
+
+    function handleChangeImage(event) {
+        const file = event.target.files[0];
+        setImageFile(file);
+    }
 
     useEffect(() => {
         async function fetchDish() {
@@ -30,7 +36,10 @@ export function Edit() {
                 
                 setTitle(title);
                 setDescription(description);
-                setCategory(category && category.length > 0 ? category[0] : "");
+                
+                const categoryValue = typeof category === 'object' ? category.category : category;
+                setCategory(categoryValue || ""); 
+                
                 setPrice(price);
                 setTags(tags.map(t => t.name)); 
             } catch (error) {
@@ -42,7 +51,6 @@ export function Edit() {
         }
         fetchDish();
     }, [params.id]);
-
 
     function handleAddTag() {
         if (!newTag) return;
@@ -59,44 +67,36 @@ export function Edit() {
             return alert("Preencha todos os campos!");
         }
 
-        // 1. Criamos o objeto FormData
+        setLoading(true);
+
         const formData = new FormData();
-
-        // 2. Adicionamos os campos de texto
-        formData.append("title", title);
-        formData.append("description", description);
-        formData.append("category", category);
-        formData.append("price", String(price).replace("R$ ", ""));
-
-        // 3. Adicionamos as tags (enviamos como string JSON para o backend tratar)
-        formData.append("tags", JSON.stringify(tags));
-
-        // 4. Se houver uma nova foto selecionada, adicionamos ela
+        
         if (imageFile) {
             formData.append("photo", imageFile);
         }
 
-        try {
-            setLoading(true);
-            // Enviamos o formData no lugar do objeto comum
-            await api.put(`/dish/${params.id}`, formData, {
-                headers: { "Content-Type": "multipart/form-data" }
-            });
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("price", String(price).replace("R$ ", ""));
+        formData.append("tags", JSON.stringify(tags)); 
 
+        try {
+            await api.put(`/dish/${params.id}`, formData);
             alert("Prato atualizado com sucesso!");
             navigate(-1);
         } catch (error) {
             if (error.response) {
                 alert(error.response.data.message);
             } else {
-                alert("Não foi possível atualizar.");
+                alert("Não foi possível atualizar o prato.");
             }
         } finally {
             setLoading(false);
         }
     }
 
-    if (loading) return <Container>Carregando...</Container>;
+    if (loading) return <Container> Carregando...</Container>;
 
     return (
         <Container>
@@ -112,10 +112,18 @@ export function Edit() {
                 <div className='Principal'>
                     <div className='img'>
                         <label htmlFor="image">Imagem do prato</label>
-                        <button type="button">
+                        <label className='image-upload-label' htmlFor="image" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <UploadSimpleIcon size={24} />
-                            Selecione imagem
-                        </button>
+                            <span>{imageFile ? imageFile.name : "Selecione imagem"}</span>
+                            
+                            <input 
+                                id="image" 
+                                type="file" 
+                                accept="image/*"
+                                onChange={handleChangeImage}
+                                style={{ display: 'none' }} 
+                            />
+                        </label>
                     </div>
 
                     <div className='name'>
@@ -131,19 +139,19 @@ export function Edit() {
                         <label>Categoria</label>
                         <select 
                             className='select' 
-                            value={category.category} 
+                            value={category} // Agora recebe apenas a string
                             onChange={e => setCategory(e.target.value)}
                         >
-                            <option value="">{category.category}</option>
-                            <option value="refeicoes">Refeições</option>
-                            <option value="sobremesas">Sobremesas</option>
-                            <option value="bebidas">Bebidas</option>
+                            <option value="">Selecione...</option>
+                            <option value="Refeições">Refeições</option>
+                            <option value="Sobremesas">Sobremesas</option>
+                            <option value="Bebidas">Bebidas</option>
                         </select>
                     </div>
                 </div>
 
                 <div className='ingredientes_preco'>
-                        <label>Ingredientes</label>
+                    <label>Ingredientes</label>
                     <div className='tags'>
                         {tags.map((tag, index) => (
                             <NoteItem
@@ -165,8 +173,8 @@ export function Edit() {
                         <label>Preço</label>
                         <input 
                             type="text" 
-                            value={`${price}`} 
-                            placeholder="R$"
+                            value={price} 
+                            placeholder="R$ 00,00"
                             onChange={e => setPrice(e.target.value)}
                         />
                     </div>
@@ -174,13 +182,11 @@ export function Edit() {
 
                 <div className='descricao'>
                     <label>Descrição</label>
-                    <div className="description">
-                        <textarea 
-                            value={description}
-                            onChange={e => setDescription(e.target.value)}
-                            placeholder="Fale brevemente sobre o prato"
-                        />
-                    </div>
+                    <textarea 
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                        placeholder="Fale brevemente sobre o prato"
+                    />
                 </div>
 
                 <div className="actions">

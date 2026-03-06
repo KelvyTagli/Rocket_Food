@@ -52,7 +52,7 @@ export const Edit_Form = styled.div`
 
         > .img {
             
-            > button {
+            > .image-upload-label {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -163,19 +163,18 @@ export const Edit_Form = styled.div`
         width: 100%;
         height: 204px;
 
-        > .description {
-            >textarea {
-                width: 1120px;
-                height: 172px;
+        >textarea {
+            width: 1120px;
+            height: 172px;
 
-                background-color: ${({theme}) => theme.COLORS.Dark_800};
-                color: ${({theme}) => theme.COLORS.Light_500};
+            background-color: ${({theme}) => theme.COLORS.Dark_800};
+            color: ${({theme}) => theme.COLORS.Light_500};
 
-                border: none;
+            border: none;
 
-                padding: 1rem;
-            }
+            padding: 1rem;
         }
+        
     }
 
     > .actions {
