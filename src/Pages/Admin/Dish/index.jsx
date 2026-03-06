@@ -17,11 +17,15 @@ export function Dish_admin() {
         const params = useParams();
         const [data, setData] = useState(null);
 
-        const navigator = useNavigate()
+        const navigate = useNavigate()
+
+        function handleBack() {
+            navigate(-1);
+        }
 
         function handlerEdit() {
             const id = params.id 
-            navigator(`/Rocket_Food/Edit/${id}`)
+            navigate(`/Rocket_Food/Edit/${id}`)
         }
     
         useEffect(() => {
@@ -41,7 +45,7 @@ export function Dish_admin() {
         return (
             <Container>
                 <Admin_Header />
-                <Link to="/Rocket_Food/" className="Button_Back">
+                <Link onClick={handleBack} className="Button_Back">
                     <CaretLeft size={30} />Voltar
                 </Link>
                 {data && (

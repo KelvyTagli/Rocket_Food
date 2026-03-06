@@ -18,7 +18,7 @@ export function Section({title, children}) {
             <h2>{title}</h2>
             <Content>
                 <Swiper
-                    slidesPerView={4}
+                    slidesPerView={3}
                     navigation={true}
                     modules={[Navigation]}
                     >

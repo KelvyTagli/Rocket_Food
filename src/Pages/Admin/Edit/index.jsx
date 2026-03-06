@@ -16,7 +16,7 @@ export function Edit() {
     const [loading, setLoading] = useState(true);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [category, setCategory] = useState(""); // Deve ser sempre uma string
+    const [category, setCategory] = useState(""); 
     const [price, setPrice] = useState("");
     
     const [tags, setTags] = useState([]);
@@ -62,6 +62,19 @@ export function Edit() {
         setTags(prevState => prevState.filter(tag => tag !== deleted));
     }
 
+    function handleBack() {
+        navigate(-2);
+    }
+
+    async function handleRemove() {
+        const confirm = window.confirm("Deseja realmente remover esse prato");
+
+        if(confirm) {
+            await api.delete(`/dish/${params.id}`)
+            handleBack()
+        }
+    }
+
     async function handleUpdateDish() {
         if (!title || !category || !price || !description) {
             return alert("Preencha todos os campos!");
@@ -101,8 +114,7 @@ export function Edit() {
     return (
         <Container>
             <Admin_Header />
-            
-            <Link to={-1} className="Button_Back">
+            <Link onClick={handleBack} className="Button_Back">
                 <CaretLeftIcon size={30} /> Voltar
             </Link>
 
@@ -139,7 +151,7 @@ export function Edit() {
                         <label>Categoria</label>
                         <select 
                             className='select' 
-                            value={category} // Agora recebe apenas a string
+                            value={category} 
                             onChange={e => setCategory(e.target.value)}
                         >
                             <option value="">Selecione...</option>
@@ -190,7 +202,7 @@ export function Edit() {
                 </div>
 
                 <div className="actions">
-                    <button type="button" className="delete">Excluir prato</button>
+                    <button type="button" className="delete" onClick={handleRemove}>Excluir prato</button>
                     <button type="button" onClick={handleUpdateDish}>Salvar alterações</button>
                 </div>
             </Edit_Form>

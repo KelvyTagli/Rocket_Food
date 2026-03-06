@@ -24,8 +24,7 @@ export const Container = styled.div `
 
     .mySwiper {
         display: flex;
-        gap: 2rem;
-
+        justify-content: space-around;
     }
 `
 
