@@ -26,7 +26,7 @@ export function Admin_Header() {
                 </Search>
             </Section>
             <Request>
-               <Link to='/Rocket_Food/exe'>
+               <Link to='/Rocket_Food/New'>
                <Button
                     title={"Novo prato"}
                 />
