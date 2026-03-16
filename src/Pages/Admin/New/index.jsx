@@ -24,17 +24,19 @@ export function New() {
 
     function handleChangeImage(event) {
         const file = event.target.files[0];
-        setImageFile(file);
+        if (file) {
+            setImageFile(file);
+        }
     }
 
     function handleAddTag() {
-        if (!newTag) return;
-        setTags(prevState => [...prevState, newTag]);
+        if (!newTag.trim()) return;
+        setTags(prevState => [...prevState, newTag.trim()]);
         setNewTag("");
     }
 
-    function handleRemoveTag(deleted) {
-        setTags(prevState => prevState.filter(tag => tag !== deleted));
+    function handleRemoveTag(indexToRemove) {
+        setTags(prevState => prevState.filter((_, index) => index !== indexToRemove));
     }
 
     async function handleNew() {
@@ -51,7 +53,7 @@ export function New() {
 
         
         tags.forEach(tag => {
-            formData.append("tags", tag);
+            formData.append("tags", JSON.stringify(tag));
         });
 
         try {
@@ -84,8 +86,7 @@ export function New() {
                         <label htmlFor="image">Imagem do prato</label>
                         <label className='image-upload-label' htmlFor="image" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <UploadSimpleIcon size={24} />
-                            <span>{ "Selecione imagem"}</span>
-                            
+                            <span>{ imageFile ? imageFile.name : "Selecione imagem" }</span>
                             <input 
                                 id="image" 
                                 type="file" 
@@ -127,7 +128,7 @@ export function New() {
                             <NoteItem 
                                 key={String(index)} 
                                 value={tag} 
-                                onClick={() => handleRemoveTag(tag)} 
+                                onClick={() => handleRemoveTag(index)} 
                             />
                         ))}
                         

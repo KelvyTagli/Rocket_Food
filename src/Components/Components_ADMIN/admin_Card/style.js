@@ -10,8 +10,9 @@ export const Container = styled.div`
     grid-template-rows: 1.6rem;
 
     padding: 1rem;
-
+    
     background-color: ${({theme}) => theme.COLORS.Dark_200};
+    border: 1px solid ${({theme}) => theme.COLORS.Light_700};
     border-radius: 8px;
 
     > .Food {
@@ -56,5 +57,5 @@ export const Price = styled.span`
     font-size: 30px;
     color: ${({theme}) => theme.COLORS.Cake_200};
 
-    margin-top: 7.5rem;
+    margin-top: 13.5rem;
 `

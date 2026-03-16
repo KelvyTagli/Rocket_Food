@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 304px;
-    height: 462px;
+    height: 472px;
 
+    
     display: grid;
-
+    
     grid-template-areas: "like" "food" "price" "button";
     grid-template-rows: 1.6rem;
-
+    
     padding: 1rem;
-
+    
+    
     background-color: ${({theme}) => theme.COLORS.Dark_200};
+    border: 1px solid ${({theme}) => theme.COLORS.Light_700};
+    
     border-radius: 8px;
 
     > .Food {
@@ -52,11 +56,12 @@ export const Food = styled.a`
 export const Price = styled.span`
     grid-area: price;
     text-align: center;
+    display: block;
 
     font-size: 30px;
     color: ${({theme}) => theme.COLORS.Cake_200};
 
-    margin-top: 7.5rem;
+    margin-top: 11rem;
 `
 
 export const Amount = styled.div`
